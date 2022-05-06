@@ -5,8 +5,8 @@ function Board(props){
     try{
         const itens = [...props.char_id];
         console.log(itens);
-        const lista = itens.map(function(item){
-            return <li><Card character={item}></Card></li>
+        const lista = itens.map(function(item, i){
+            return <li><Card character={item} key={i}></Card></li>
             //return <li>{item}</li>; 
         })
 
@@ -22,7 +22,7 @@ function Board(props){
     catch{
         return(
             <board>
-                <Card></Card>
+                <h3 className="episode">Algo deu errado</h3>
             </board>
         )
     }
