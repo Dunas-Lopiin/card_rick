@@ -40,9 +40,7 @@ function Card(props){
             <div>
                 <h2>{char.name}</h2>
                 <img src={char.image}></img>
-                <div className="dead-banner">
-                    <h1>MORTO</h1>
-                </div>
+                <h1 className="dead-banner">MORTO</h1>
                 <h3>Gender: {char.gender}</h3>
                 <h3>Species: {char.species}</h3>
             </div>

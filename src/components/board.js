@@ -12,7 +12,9 @@ function Board(props){
 
         return(
             <board>
-                <h3>{ props.name }</h3>
+                <div className="episode">
+                    <h3>{ props.name }</h3>
+                </div>
                 <ul>{lista}</ul>
             </board>
         )
