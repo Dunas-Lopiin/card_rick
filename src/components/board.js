@@ -7,7 +7,6 @@ function Board(props){
         console.log(itens);
         const lista = itens.map(function(item, i){
             return <li><Card character={item} key={i}></Card></li>
-            //return <li>{item}</li>; 
         })
 
         return(
