@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
+import {Alive, Dead, Unknown, Title, CardBase, Dead_banner, Unknown_banner, Info, Image, Banner_Image } from "../style/style"
 
 function Card(props){
     const [char, setChar] = useState([]);
     const chararacter = props.character;
+
     useEffect(() => {
         try{
             fetch(chararacter).then(res => {
@@ -24,42 +26,34 @@ function Card(props){
     })
     if(char.status === 'Alive'){
         return(
-            <card className="alive">
-                <div>
-                    <h2>{char.name}</h2>
-                    <img src={char.image}></img>
-                    <h3>Gender: {char.gender}</h3>
-                    <h3>Species: {char.species}</h3>
-                </div>
-            </card>
+            <Alive>
+                <Title>{char.name}</Title>
+                <Image src={char.image}></Image>
+                <Info>Gender: {char.gender}</Info>
+                <Info>Species: {char.species}</Info>
+            </Alive>
         )
     }
     else if(char.status === 'Dead'){
         return(
-            <card className="dead">
-            <div>
-                <h2>{char.name}</h2>
-                <img src={char.image}></img>
-                <h1 className="dead-banner">MORTO</h1>
-                <h3>Gender: {char.gender}</h3>
-                <h3>Species: {char.species}</h3>
-            </div>
-        </card>
+            <Dead>
+                <Title>{char.name}</Title>
+                <Banner_Image src={char.image}></Banner_Image>
+                <Dead_banner>MORTO</Dead_banner>
+                <Info>Gender: {char.gender}</Info>
+                <Info>Species: {char.species}</Info>
+            </Dead>
         )
     }
     return(
-        <card className="unknown">
-        <div>
-            <h2>{char.name}</h2>
-            <img src={char.image}></img>
-            <h1 className="unknown-banner">DESCONHECIDO</h1>
-            <h3>Gender: {char.gender}</h3>
-            <h3>Species: {char.species}</h3>
-        </div>
-    </card>
+        <Unknown>
+            <Title>{char.name}</Title>
+            <Banner_Image src={char.image}></Banner_Image>
+            <Unknown_banner>DESCONHECIDO</Unknown_banner>
+            <Info>Gender: {char.gender}</Info>
+            <Info>Species: {char.species}</Info>
+        </Unknown>
     )
-
-    
 }
 
 export default Card;
