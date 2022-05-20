@@ -1,8 +1,10 @@
-import Board from "./components/board";
-import Table from "./components/table";
+import React from "react";
+import MyRoutes from "./routes";
 
-function App(){
-  return Table(Board);
+function App() {
+  return (
+    <MyRoutes />
+  )
 }
 
 export default App;
